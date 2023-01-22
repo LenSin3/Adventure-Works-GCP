@@ -26,3 +26,21 @@ SELECT count(*) FROM returns;
 
 SELECT 'Displaying count for sales';
 SELECT count(*) FROM sales;
+
+USE sales_gold_db;
+
+SHOW tables;
+
+!gsutil ls gs://lpkadvworks/sales_gold.db;
+
+SELECT 'Displaying count for daily product revenue';
+SELECT count(*) FROM daily_product_revenue;
+
+USE returns_gold_db;
+
+SHOW tables;
+
+!gsutil ls gs://lpkadvworks/returns_gold.db;
+
+SELECT 'Displaying count for daily returns cost';
+SELECT count(*) FROM daily_returns_cost;
