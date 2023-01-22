@@ -1,7 +1,7 @@
 import pandas as pd
 
 def save_to_gcs_bucket(df, bucket_name, dest_dir_name, transformed_file_name):
-    df.to_csv(f'gs://{bucket_name}/{dest_dir_name}/{transformed_file_name}.csv')
+    df.to_csv(f'gs://{bucket_name}/{dest_dir_name}/{transformed_file_name}.csv', index=False)
 
 def transform_customers(file_uri, bucket_name, dest_dir_name, transformed_file_name):
     df = pd.read_csv(file_uri, encoding ='ISO-8859-1')
