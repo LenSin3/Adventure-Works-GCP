@@ -9,7 +9,8 @@ USE sales_bronze_db;
 CREATE OR REPLACE TEMPORARY VIEW ${table_name}_v
 USING CSV
 OPTIONS (
-    path='${bucket_name}/transformed/${table_name}.csv'
+    path '${bucket_name}/transformed/${table_name}.csv',
+    header true
 );
 
 -- create table in parquet format
