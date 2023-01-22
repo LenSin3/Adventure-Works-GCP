@@ -38,5 +38,5 @@ SELECT OrderDate,
     SUM(OrderQuantity) as TotalOrders,
     ROUND(SUM(Sales), 2) as SalesTotal
 FROM combined_sales
-GROUP BY 1, 2, 3, 4\
+GROUP BY 1, 2, 3, 4
 ORDER BY 1 DESC, 6 DESC;

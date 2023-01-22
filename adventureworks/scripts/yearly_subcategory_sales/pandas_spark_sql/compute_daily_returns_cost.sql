@@ -27,7 +27,7 @@ WITH combined_returns AS (
     LEFT JOIN sales_bronze_db.products
     USING(ProductKey)
     JOIN sales_bronze_db.subcategories sc
-    USING(ProductSubcategoryKey)\
+    USING(ProductSubcategoryKey)
     JOIN sales_bronze_db.categories
     USING(ProductCategoryKey)
 )
