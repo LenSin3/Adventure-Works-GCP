@@ -7,7 +7,7 @@ USE sales_bronze_db;
 
 -- create temporary view of table from csv file
 CREATE OR REPLACE TEMPORARY VIEW ${table_name}_v
-USING TEXT
+USING CSV
 OPTIONS (
     path='${bucket_name}/transformed/${table_name}.csv'
 );
