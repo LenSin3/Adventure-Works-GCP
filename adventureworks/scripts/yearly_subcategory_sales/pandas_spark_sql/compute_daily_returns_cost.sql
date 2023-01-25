@@ -62,7 +62,7 @@ FROM (
     USING(ProductKey)
     JOIN sales_bronze_db.subcategories sc
     USING(ProductSubcategoryKey)
-    JOIN sales_bronze_db.categories
+    JOIN sales_bronze_db.categories c
     USING(ProductCategoryKey)
 ) cr
 GROUP BY 1, 2, 3, 4
