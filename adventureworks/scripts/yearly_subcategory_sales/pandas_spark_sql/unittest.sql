@@ -36,6 +36,9 @@ SHOW tables;
 SELECT 'Displaying count for daily product revenue';
 SELECT count(*) FROM daily_product_revenue;
 
+SELECT 'Displaying first 5 rows for daily product revenue';
+SELECT * FROM daily_product_revenue LIMIT 5;
+
 USE returns_gold_db;
 
 SHOW tables;
@@ -44,3 +47,6 @@ SHOW tables;
 
 SELECT 'Displaying count for daily returns cost';
 SELECT count(*) FROM daily_returns_cost;
+
+SELECT 'Displaying first 5 rows of daily returns cost';
+SELECT * FROM daily_returns_cost LIMIT 5;
