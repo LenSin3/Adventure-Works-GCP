@@ -5,7 +5,7 @@ LOCATION '${bucket_name}/sales_gold.db';
 USE sales_gold_db;
 
 CREATE TABLE IF NOT EXISTS daily_product_revenue (
-    OrderDate DATE,
+    OrderDate STRING,
     CategoryName STRING,
     ProductSubcategoryKey STRING,
     SubcategoryName STRING,

@@ -5,7 +5,7 @@ LOCATION '${bucket_name}/returns_gold.db';
 USE returns_gold_db;
 
 CREATE TABLE IF NOT EXISTS daily_returns_cost (
-    ReturnDate DATE,
+    ReturnDate STRING,
     CategoryName STRING,
     ProductSubcategoryKey STRING,
     SubcategoryName STRING,
@@ -58,7 +58,7 @@ FROM (
         p.ProductPrice,
         r.ReturnQuantity * p.ProductPrice as ReturnsCost
     FROM sales_bronze_db.returns r
-    LEFT JOIN sales_bronze_db.products
+    LEFT JOIN sales_bronze_db.products p
     USING(ProductKey)
     JOIN sales_bronze_db.subcategories sc
     USING(ProductSubcategoryKey)
