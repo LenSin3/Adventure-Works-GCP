@@ -41,27 +41,28 @@ FROM combined_returns
 GROUP BY 1, 2, 3, 4
 ORDER BY 1 DESC, 6 DESC;**/
 
+INSERT INTO daily_returns_cost 
 SELECT cr.ReturnDate,
     cr.CategoryName,
     cr.ProductSubcategoryKey,
     cr.SubcategoryName,
-    SUM(cr.OrderQuantity) as TotalOrders,
-    ROUND(SUM(cr.Sales), 2) as SalesTotal
+    SUM(cr.ReturnQuantity) as TotalReturns,
+    ROUND(SUM(cr.ReturnsCost), 2) as TotalReturnsCost
 FROM (
-    SELECT s.OrderDate,
-        s.ProductKey,
+    SELECT r.ReturnDate,
+        r.ProductKey,
         p.ProductSubCategoryKey,
         c.CategoryName,
         sc.SubCategoryName,
-        s.OrderQuantity,
+        r.ReturnQuantity,
         p.ProductPrice,
-        s.OrderQuantity * p.ProductPrice as Sales
-    FROM sales_bronze_db.sales s
-    LEFT JOIN sales_bronze_db.products p
+        r.ReturnQuantity * p.ProductPrice as ReturnsCost
+    FROM sales_bronze_db.returns r
+    LEFT JOIN sales_bronze_db.products
     USING(ProductKey)
     JOIN sales_bronze_db.subcategories sc
     USING(ProductSubcategoryKey)
-    JOIN sales_bronze_db.categories c
+    JOIN sales_bronze_db.categories
     USING(ProductCategoryKey)
 ) cr
 GROUP BY 1, 2, 3, 4

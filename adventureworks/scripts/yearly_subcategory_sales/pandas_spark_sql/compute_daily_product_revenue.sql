@@ -41,6 +41,7 @@ FROM combined_sales
 GROUP BY 1, 2, 3, 4
 ORDER BY 1 DESC, 6 DESC;**/
 
+INSERT INTO daily_product_revenue
 SELECT cs.OrderDate,
     cs.CategoryName,
     cs.ProductSubcategoryKey,
