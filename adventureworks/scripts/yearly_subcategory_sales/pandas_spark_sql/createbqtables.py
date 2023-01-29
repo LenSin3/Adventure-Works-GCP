@@ -26,7 +26,7 @@ def create_bq_schema(table_name, schema, project_id='dataengongcp', dataset='adv
     )
     
 # create daily_product_revenue table
-schema_daily_product_revenue=[
+schema_daily_sales_revenue=[
         bigquery.SchemaField('OrderDate', 'STRING'),
         bigquery.SchemaField('CategoryName', 'STRING'),
         bigquery.SchemaField('ProductSubcategoryKey', 'STRING'),
@@ -46,7 +46,7 @@ schema_daily_returns_cost=[
     ]
 
 # daily_product_revenue
-create_bq_schema('daily_product_revenue', schema_daily_product_revenue)
+create_bq_schema('daily_sales_revenue', schema_daily_sales_revenue)
 
 # daily returns cost
 create_bq_schema('daily_returns_cost', schema_daily_returns_cost)
